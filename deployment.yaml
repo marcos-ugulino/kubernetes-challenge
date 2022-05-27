@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: kubmarcos
+  name: kubmarcos
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: kubmarcos
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: kubmarcos
+    spec:
+      containers:
+      - image: kubchallenge
+        imagePullPolicy: IfNotPresent
+        name: kubchallenge
+        resources: {}
+        env:
+        - name: NAME
+          valueFrom:
+            configMapKeyRef:
+              name: configmap
+              key: name
+status: {}

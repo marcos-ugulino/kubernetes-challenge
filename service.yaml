@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Service
+metadata:
+  creationTimestamp: "2022-05-27T12:42:22Z"
+  labels:
+    app: kubmarcos
+  name: kubmarcos
+spec:
+  ports:
+  - port: 4000
+    protocol: TCP
+    targetPort: 4000
+  selector:
+    app: kubmarcos
+  type: NodePort
+status:
+  loadBalancer: {}
